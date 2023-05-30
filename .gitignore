@@ -1,0 +1,6 @@
+.venv/
+*.pyc
+__pycache__
+old.git
+
+openai-api-key.txt

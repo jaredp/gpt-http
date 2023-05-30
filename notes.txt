@@ -1,0 +1,26 @@
+inspired by "GPT is all you need for backend" (https://twitter.com/karpathy/status/1618311660539904002?lang=en)
+
+major advancements:
+1. can do imperative actions like charge Stripe, send SMS and email, integrate with 3rd party APIs, etc.
+2. scalable to arbitrarily large dbs; LLM context length is O(data fetch) instead of O(db size). Other limits discussed below
+3. AI generates frontend ("GPT is all you need for webapps")
+
+Future directions (in no particular order):
+[ ] design prompting: whole category of problem
+    [ ] "come up with 3 options, then pick the best option"
+    [ ] generate the layout first (best of 3), then go section by section (best of 3 for each), then combine them
+    [ ] gpt is very bad at incorporating specific information into a layout. Jinja templates ignore actual values seen earlier and just do string interpolation. If you give GPT just a bunch of info and say fill it in to the layout, it seems to mostly ignore previous layout
+    [ ] saying you want to optimize for desktop helps a lot
+[ ] empirical software engineering research? As we experiment with different langchain prompt sequences and measure results, this is *kind of* like testing different PM, designer, engineer workflows. There's too much noise to meaningfully run these experiments in the real world; 2nd hand anecdote I don't have a citation for: study about Agile gave up because they couldn't find any 2 teams that meaningfully practiced Agile in the same way. In general, we might be able to start doing experimental sociology by testing GPT. GPT doesn't necessarily respond the same way humans do, but GPT could be species modello humani for sociology the way mice are for bio.
+[ ] offline analysis of transcripts; summarize to deterministic python code. Benefits:
+    a. can be reviewed by PMs for appropriateness of policy
+    b. deterministic python code much faster and cheaper
+[ ] GPT generates schema and evolves it as requests come in
+[ ] better prompting for page generation:
+    a. what should this page do; what should it have on it; here's a brand look and feel to match the design to, etc
+    b. here's the previous page the user came from
+    c. here's a memory of previous route patterns and what their pages did/looked like; try to reuse so there's some consistency
+[ ] support A/B tests. Put in the prompt what A/B tests are being run, and which arm the current user is in
+[ ] separate models.py so it's pluggable to different apps/schemas/dbs
+[ ] see a bunch of routes in parallel (many iframes in a gallery formation). Compare across different prompts (save .html files)
+[ ] switch to chatgpt API
