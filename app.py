@@ -143,7 +143,17 @@ def test_frame():
 
 from gpt_http import gpt_hallucinate
 
+### Globals need the unused imports
+from flask import render_template_string, request
+import flask
+import flask_login
+import inspect
+import os
+import sys
+import time
+### End globals
 gpt_hallucinate(app, get_gbls=lambda: globals())
+
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=7500)
