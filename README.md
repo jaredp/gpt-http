@@ -2,14 +2,12 @@
 
 ## Requirements
 
-Python v3.11.3
+Python v3.11.3, [Poetry](https://python-poetry.org/)
 
 ## Installation
 
 ```bash
-python3.11 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+poetry install
 ```
 
 Then, get an API key from OpenAI and put it in a file called `openai-api-key.txt` in the root directory. You can get an API key from <https://platform.openai.com/account/api-keys>.
@@ -17,7 +15,7 @@ Then, get an API key from OpenAI and put it in a file called `openai-api-key.txt
 ## Usage
 
 ```bash
-python app.py
+poetry run python app.py
 ```
 
 and go to a url at <http://localhost:7500>
@@ -25,7 +23,7 @@ and go to a url at <http://localhost:7500>
 ## To test in a live repl
 
 ```bash
-python app.py --shell
+poetry run python app.py --shell
 ```
 
 and go to a url at <http://localhost:7500>
@@ -33,7 +31,7 @@ and go to a url at <http://localhost:7500>
 ## To run from a scripted test
 
 ```bash
-python app.py --prerecording=sample2.convo.txt
+poetry run python app.py --prerecording=sample2.convo.txt
 ```
 
 and go to a url at <http://localhost:7500>
@@ -41,7 +39,7 @@ and go to a url at <http://localhost:7500>
 ## Full options
 
 ```bash
-$ python app.py --help
+$ poetry run python app.py --help
 usage: app.py [-h] [--shell] [--confirm] [--prerecording FILENAME]
 
 Have GPT hallucinate a web app
