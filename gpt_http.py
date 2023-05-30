@@ -15,14 +15,15 @@ class Conversation(object):
         self.convo += text
 
         # print to console
-        color = lambda text: text
+        def color(text):
+            return text
         if speaker == "system":
-            color = chalk.blue
+            colorize = chalk.blue
         elif speaker == "gpt":
-            color = chalk.red
+            colorize = chalk.red
         elif speaker == "python":
-            color = chalk.green
-        print(color(text), end="")
+            colorize = chalk.green
+        print(colorize(text), end="")
 
     def toStr(self):
         return self.convo
@@ -106,7 +107,7 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
-from repl2 import interactive_shell, UnforgivingRepl, UnforgivingRepl2
+from repl2 import interactive_shell, UnforgivingRepl2
 
 
 def gpt_hallucinate(app, get_gbls):
@@ -164,7 +165,7 @@ def gpt_hallucinate(app, get_gbls):
             try:
                 if tool == "python":
                     python_result = repl(code)
-                    if repl.result != None:
+                    if repl.result is not None:
                         return repl.result
 
                 elif tool == "jinja":
@@ -184,7 +185,7 @@ def gpt_hallucinate(app, get_gbls):
 
             def suggest(suggested_response):
                 prerecording.insert(0, suggested_response)
-
+ 
             if (
                 ex
                 and isinstance(ex, AttributeError)
