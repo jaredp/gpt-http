@@ -40,7 +40,7 @@ class buffered_repl_interaction(object):
         sys.displayhook = displayhook
 
         # swizzle sys.stdout and sys.stderr to an io.StringIO (https://docs.python.org/3/library/io.html)
-        # so we caputre stdout/stderr writes regardless of where the write comes from- ie. a print() inside some inner function
+        # so we capture stdout/stderr writes regardless of where the write comes from- ie. a print() inside some inner function
         import io
         self.stdout_buffer = sys.stdout = sys.stderr = io.StringIO()
 

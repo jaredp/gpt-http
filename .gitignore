@@ -4,3 +4,5 @@ __pycache__
 old.git
 
 openai-api-key.txt
+
+.vscode/*

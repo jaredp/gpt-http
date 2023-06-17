@@ -1,15 +1,9 @@
-import flask
-from flask import Flask, redirect, render_template, render_template_string, request
+from flask import Flask, redirect, render_template
 import os
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-import os
 from datetime import datetime
-import sys
-import inspect
-import time
 
-import flask_login
 from flask_login import UserMixin, LoginManager, login_user, logout_user, current_user
 
 app = Flask(__name__)
@@ -149,7 +143,17 @@ def test_frame():
 
 from gpt_http import gpt_hallucinate
 
+### Globals need the unused imports
+from flask import render_template_string, request
+import flask
+import flask_login
+import inspect
+import os
+import sys
+import time
+### End globals
 gpt_hallucinate(app, get_gbls=lambda: globals())
+
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=7500)
